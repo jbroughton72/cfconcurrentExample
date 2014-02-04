@@ -2,7 +2,7 @@
 
 ###Requirements:
  - ColdFusion 10
- - Coldbox 2.5
+ - Coldbox 3.8.1
  - Cfconcurrent 
  - mysql server 5.6
 
