@@ -4,10 +4,10 @@
 		<cfscript>
 			
 			//creates cfconcurrent executor service
-			/*application.executorService = createObject("component", "cfconcurrent.ExecutorService")
+			application.executorService = createObject("component", "cfconcurrent.ExecutorService")
 			.init( serviceName = "executorServiceExample", maxConcurrent = 0, maxWorkQueueSize = 100000);
 			application.executorService.setLoggingEnabled( true );
-			application.executorService.start();*/
+			application.executorService.start();
 			
 			//creates a cfconcurrent executor complete service
 			application.executorCompletionService = createObject("component", "cfconcurrent.ExecutorCompletionService")

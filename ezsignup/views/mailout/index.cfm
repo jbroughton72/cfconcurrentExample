@@ -11,6 +11,7 @@
 				<form id="signup" name="signup" class="well brandcolor" role="form"method="post" action="index.cfm?event=mailout.send">
 				  <button type="submit" class="btn btn-primary">Send Now</button>
 				</form>
+				
 			</div>
 		</div>
 	</div>

@@ -19,6 +19,23 @@
 				<cfreturn #cfcatch.Message#>
 			</cfcatch>
 			</cftry>
-    </cffunction>	
+    </cffunction>
+    
+    <!--- sends initial mail to a new subscribing user --->
+    <cffunction name="sendMailoutEmail" output="false" access="public" returntype="string" hint="Sends the welcome email when user successully signs up">
+		<cfargument name="user" type="User" required="true" />
+		<cftry>
+			<cfmail from="noreply@ezsignup.com" subject="EZ-Signup's Monthly Mailout" to="#arguments.user.getEmail()#" type="html" >
+				<p>
+				Greetings #arguments.user.getFirstname()# #arguments.user.getLastname()#. Here is the latest mailout from EZ-Signup!
+				</p>
+			</cfmail>
+			<cfreturn 'Success'>
+			
+			<cfcatch type="any" > 
+				<cfreturn #cfcatch.Message#>
+			</cfcatch>
+			</cftry>
+    </cffunction>		
 
 </cfcomponent>
