@@ -38,7 +38,7 @@
  - after looping the users i pass the array of taks to the Executor Service and use the invokeAll method to send all tasks to the workers
  - On the send page i indicate to the administrator user the number of emails sent and show a list of user names and email addresses
  - at the bottom of the send page I have dumped the responses from each of the task workers.
- - 
+
  
 ## Summary
 - Due to a limited time frame and the fact that this is just a simple application I had to draw the line at how far I would take the app. 
