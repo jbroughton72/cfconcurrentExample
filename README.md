@@ -1,4 +1,9 @@
-cfconcurrentExample
+Coldbox and Cfconcurrent Example Application
 ===================
 
-Coldbox and cfconcurrent example app
+Requirements:
+Coldfusion 10
+Coldbox
+Cfconcurrent
+mysql server
+
