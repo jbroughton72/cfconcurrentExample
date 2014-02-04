@@ -20,24 +20,8 @@
 		</cfquery>
     	
 		<cfreturn q.id>
-    	
     </cffunction>
 
-	<!--- list all users --->
-    <cffunction name="listAll" output="false" access="public" returntype="query" hint="Returns all users">
-		
-    	<cfset var q = "">
-		
-		<cfquery name="q" datasource="#variables.dsn#">
-		SELECT * 
-		    FROM users
-		ORDER BY lastname asc
-		</cfquery>
-    	
-		<cfreturn q>
-    	
-    </cffunction>
-    
     <!--- list active --->
     <cffunction name="listActive" output="false" access="public" returntype="query" hint="Returns active users">
     	<cfset var q = "">
@@ -50,24 +34,7 @@
 		</cfquery>
     	
 		<cfreturn q>
-    	
     </cffunction>
-    
-    <!--- list unsubscribed --->
-    <cffunction name="listUnsubscribed" output="false" access="public" returntype="query" hint="Returns all ubsubscribed users">
-    	<cfset var q = "">
-		
-		<cfquery name="q" datasource="#variables.dsn#">
-		SELECT * 
-		    FROM users
-		    WHERE active = 0
-		ORDER BY lastname asc
-		</cfquery>
-    	
-		<cfreturn q>
-    	
-    </cffunction>
-    
 
 	<!--- create --->
     <cffunction name="create" output="false" access="public" returntype="void" hint="Creates a user">
@@ -80,27 +47,11 @@
 			 		 <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.user.getLastname()#">,
 			 		 <cfqueryparam cfsqltype="cf_sql_varchar" value="#arguments.user.getEmail()#">)
 		</cfquery>
-		
     </cffunction>
 	
-	<!--- unsubscribe --->
-    <cffunction name="unsubscribe" output="false" access="public" returntype="any" hint="Unsubscribes a user">
-    	<cfargument name="id" type="any" required="true"/>
-    	
-    	<cfset var q = "">
-		
-		<cfquery name="q" datasource="#variables.dsn#">
-		UPDATE Users 
-		  SET (active = 0)
-		 WHERE id = <cfqueryparam cfsqltype="cf_sql_numeric" value="#arguments.id#">
-		</cfquery>
-		
-    </cffunction>
-    
     <!--- initial Email sent --->
     <cffunction name="initialEmailSent" output="false" access="public" returntype="any" hint="Updates user when initial email has been sent">
     	<cfargument name="id" type="any" required="true"/>
-    	
     	<cfset var q = "">
 		
 		<cfquery name="q" datasource="#variables.dsn#">

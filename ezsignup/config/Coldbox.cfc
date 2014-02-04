@@ -9,7 +9,7 @@ function configure(){
 		appName 				= "ezsignup",
 
 		//Development Settings
-		debugMode				= true,
+		debugMode				= false,
 		debugPassword			= "",
 		reinitPassword			= "",
 		handlersIndexAutoReload = true,

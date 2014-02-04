@@ -4,6 +4,7 @@
     <cffunction name="init" output="false" access="public" returntype="any" hint="Constructor">
     	<cfreturn this>
     </cffunction>
+    
     <!--- sends initial mail to a new subscribing user --->
     <cffunction name="sendInitialEmail" output="false" access="public" returntype="string" hint="Sends the welcome email when user successully signs up">
 		<cfargument name="user" type="User" required="true" />

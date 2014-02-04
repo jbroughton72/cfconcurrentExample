@@ -9,8 +9,6 @@
 		<cfargument name="rc">
 		<cfargument name="prc">
 		
-		
-		
 		<cfset event.setView("mailout/index")>
 	</cffunction>
 
@@ -18,12 +16,11 @@
 	<cffunction name="send" access="public" returntype="void" output="false">
 		<cfargument name="Event" type="any">
 		<cfset var rc = event.getCollection()>
-		
 		<cfset usersList = this.userService.listActive()>
 		<cfset rc.users = #usersList# >
 		
+		<!---Loop over each active user and create the email mailout task --->
 		<cfset tasks = ArrayNew(1) />
-		
 		<cfloop query="rc.users" >
 			<cfset var user = new models.User()  
 	            .setFirstname( #firstname# )  
@@ -32,8 +29,8 @@
 			<cfset arrayAppend( tasks, new tasks.MailoutTask( user ) )/>ds
 		</cfloop>
 		
+		<!--- invoke all tasks in the executor service --->
 		<cfset futures = application.executorService.invokeAll( tasks ) />
-		
 		<cfset futuresResults = ArrayNew(1) />
 		<cfloop array=#futures# index="future">
 			<cftry>

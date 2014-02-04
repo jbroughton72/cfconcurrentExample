@@ -16,4 +16,4 @@
 	</div>
 </div>
 </cfoutput>
-<cfdump var="#rc.workerResponse#"/>
+<cfdump var="#rc.workerResponse#" label="Task response for sending mailout email"/>

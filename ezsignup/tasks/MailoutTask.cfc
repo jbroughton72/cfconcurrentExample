@@ -1,7 +1,6 @@
 ﻿component{
 
 	result = {startTick = getTickCount(), startTS = now(), message=""};
-	
 	mailerService = createObject("component", "models.EmailService").init();
 
 	function init(user){
@@ -9,6 +8,7 @@
 		return this;
 	}
 
+	/* Task to send the mailout email to a user */
 	function call(){
 		try{
 			result.status = mailerService.sendMailoutEmail(user);

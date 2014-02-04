@@ -1,14 +1,14 @@
 ﻿component{
 
 	result = {startTick = getTickCount(), startTS = now(), message=""};
-	
 	mailerService = createObject("component", "models.EmailService").init();
 
 	function init(user){
 		structAppend( variables, arguments );
 		return this;
 	}
-
+	
+	/* Task to send the initial email to a user */
 	function call(){
 		try{
 			result.status = mailerService.sendInitialEmail(user);
