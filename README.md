@@ -21,9 +21,9 @@
 
 ### Signup Process:
  - I wanted to create a simple application that used some of the features of Cfconcurrent. I decided to also use the Coldbox framework as I am a huge fan of MVC frameworks and I had never used Coldbox before.
- - A user visits the site and enters their firstname, lastname and email address.
+ - A user visits ezsignup/index.cfm?event=main and enters their firstname, lastname and email address.
  - I added simple validation to the form and the database requires unique email addresses
- - On submitting the form, the user is saved in the database
+ - On submitting the form (ezsignup/index.cfm?event=main.join), the user is saved in the database
  - I have sent up a Cfconcurrent Executor Completion Service to send out an intial welcome email to the user, once the task is comepleted successfully a second task is fired to update the user entry in the database and set the initialEmail field to 1 (true).
  - the user is directed to a join page wich tells them they have sucessfully joined the mailing list
  - at the bottom of the join page i have dumped the response from the task worker showing a sucess status, time stats and the user object that was saved. 
@@ -32,8 +32,8 @@
 ### Mass Emailing Mailout:
  - A second component of this application is to be able to send out a mass email to all active users in the database
  - This page would eventually make its way into an administrator only area of the site, but for demo purposes it is just a stand alone page.
- - the mailout.index page just contains a button which submits the form to the mailout.send controller
- - the mailout.send method gets a list of all active users in the database
+ - the ezsignup/index.cfm?event=mailout page just contains a button which submits the form to the mailout.send controller
+ - the ezsignup/index.cfm?event=mailout.send method gets a list of all active users in the database
  - looping through the user list I create a mailout email task for each user
  - after looping the users i pass the array of taks to the Executor Service and use the invokeAll method to send all tasks to the workers
  - On the send page i indicate to the administrator user the number of emails sent and show a list of user names and email addresses
